@@ -1,0 +1,53 @@
+﻿<!-- 
+    MemCard2025
+    MIT License
+    Copyright (c) 2025 Raymond Lou Independent Developer
+    See LICENSE file for full license information.
+-->
+
+<!-- Views/Flex2ndDisplayWindow.xaml  -->
+<Window x:Class="MemCard2025DesktopViewer.Views.Flex2ndDisplayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemCard2025DesktopViewer.Views"
+        mc:Ignorable="d"
+        Title="Flex 2nd Display" Height="600" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        
+        <!-- Define a Grid with two rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Flexible area for the image -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fixed area for the subtitle -->
+        </Grid.RowDefinitions>
+
+        <!-- Card Image Display -->
+        <Image x:Name="CardImage" Grid.Row="0" Stretch="Uniform" 
+               Source="{Binding CurrentImagePath}"
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" Margin="10"/>
+
+        <!-- Subtitle Display -->
+        <TextBlock x:Name="SubtitleText" 
+                   Text="{Binding CurrentSubtitleContent}" 
+                   Grid.Row="1"
+                   TextWrapping="Wrap"
+                   FontSize="64" FontWeight="Bold" 
+                   Margin="10"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <!-- Close Button -->
+        <Button Content="Close"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Left"
+        Width="75"
+        Height="30"
+        Margin="10"
+        Click="CloseButton_Click"/>
+
+    </Grid>
+</Window>
